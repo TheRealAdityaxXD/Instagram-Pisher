@@ -14,7 +14,7 @@ This is a **replica of Instagram's login UI** that logs user credentials and sen
 ## 🖥️ Interface Of Phishing Site:
 
 ![screenshot](images/instagram.png) 
-![screenshot](discord.png) 
+![screenshot](images/discord.png) 
 
 ---
 
