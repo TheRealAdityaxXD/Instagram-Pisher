@@ -1,0 +1,257 @@
+/* === Reset & Base === */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  overflow-y: scroll;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:active, .btn:active {
+  opacity: 0.5;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Layout === */
+#root {
+  z-index: 0;
+}
+
+.section-all {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  background-color: #fafafa;
+  flex-grow: 1;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.article {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 935px;
+  width: 100%;
+  margin: 0 auto;
+  flex-grow: 1;
+}
+
+.content {
+  max-width: 350px;
+  flex-grow: 1;
+  margin-top: 12px;
+  color: #262626;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === Login Box === */
+.login-box {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+.header {
+  margin: 15px auto 12px;
+  text-align: center;
+}
+
+.logo {
+  width: 175px;
+  height: auto;
+}
+
+/* === Form === */
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  margin: 0 40px 6px;
+}
+
+input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  background: #fafafa;
+  font-size: 12px;
+  padding: 9px 0 7px 8px;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+input:focus {
+  border-color: #bbb;
+}
+
+.button-box {
+  margin: 8px 40px;
+}
+
+.btn {
+  width: 100%;
+  height: 28px;
+  line-height: 26px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #3897f0;
+  border: 1px solid #3897f0;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+/* === Links & Text === */
+.forgot {
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+  color: #003569;
+  display: block;
+}
+
+.text {
+  text-align: center;
+  margin: 15px;
+  font-size: 14px;
+  color: #262626;
+}
+
+.text a {
+  color: #3897f0;
+  margin-left: 3px;
+}
+
+/* === App Section === */
+.app p {
+  text-align: center;
+  font-size: 14px;
+  color: #262626;
+  margin: 10px 20px;
+}
+
+.app-img {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.app-img a {
+  margin-right: 8px;
+}
+
+.app-img img {
+  height: 40px;
+}
+
+/* === Footer === */
+.footer {
+  background-color: #fafafa;
+  padding: 0 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 935px;
+  margin: 0 auto;
+  padding: 38px 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.footer-nav ul li a {
+  color: #003569;
+}
+
+.footer span {
+  color: #999;
+}
+
+.language {
+  color: #003569;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+}
+
+.select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* === Media Queries === */
+@media (max-width: 875px) {
+  .footer-container {
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    background: #fff;
+  }
+
+  .content {
+    max-width: 100%;
+    margin-top: 0;
+    justify-content: space-between;
+  }
+
+  .login-box {
+    background: transparent;
+    border: none;
+  }
+}
